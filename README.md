@@ -1,2 +1,2 @@
 # My Codebase
- Generic code that I can use for Unity games
+ Generic code that can be used for Unity games. It will be updated as I make more games and find more reusable code.
