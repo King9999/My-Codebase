@@ -1,0 +1,1 @@
+This is a folder containing templates that I can use for any of my projects. Currently the code is only for Unity projects.
