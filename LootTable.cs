@@ -12,6 +12,14 @@ using UnityEngine;
 In both steps, the tables and items have weight, that determines the rarity of accessing that content. This code should be 
 modified to fit whatever game you're working on. For example, maybe you only need 1 list of items.
 
+HOW WEIGHT WORKS
+------
+In order for the weights to work properly, the values must be in descending order (i.e. 300, 200, 100). The higher the weight
+of an item is, the less rare it is. When you want to roll for an item, you add up the total weight of all items
+in a table, then get a random value between 0 and the total weight. The value must be less than or equal to an item's weight to 
+indicate success. If the roll is not successful, subtract the weight of the item from the current value, 
+then check the next item's weight.
+
 Note that the table is a scriptable object since it doesn't need to be a game object that would be visible in the game. But
 there would need to be a reference to the object somewhere in your game.
  */
@@ -20,7 +28,7 @@ namespace MMurray.GenericCode
     [CreateAssetMenu(menuName = "Loot Table", fileName = "masterLootTable")]
     public class LootTable : ScriptableObject
     {
-        public int[] tableWeight;               //determines which category of items to access
+        public int[] tableWeight;               //determines which category of items to access. 
         public List<LootItem> consumables;      //single-use items
         public List<LootItem> equipment;       
         public List<LootItem> valuables;        //items that are sold
